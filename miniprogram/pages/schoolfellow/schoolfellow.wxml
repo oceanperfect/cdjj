@@ -1,0 +1,25 @@
+<view class="wrap">
+  <view class="list-wrap" wx:for="{{list}}" wx:key="{{item.listId}}">
+    <movable-area>
+      <movable-view out-of-bounds="true" direction="horizontal" x="{{item.xmove}}"
+        inertia="true"
+        data-listIndex="{{index}}">
+        <view class="list"> 
+          <view class='pic'>
+            <image src='{{item.avtor?item.avtor:defaultAvtor}}' mode='widthFix'></image>
+            <text class='{{item.newSum?"sum":""}}'>{{item.newSum<100?item.newSum:'99+'}}</text>
+          </view>
+          <view class='text'>
+            <view class='top'>
+              <view class='left'>{{item.name}}</view>
+              <view class='right'>{{item.time}}</view>
+            </view>
+            <view class='bottom'>{{item.lastMsg}}</view>
+          </view>
+        </view>
+      </movable-view>
+    </movable-area>
+    <view class="delete-btn" data-id="{{index}}" bindtap="handleDeleteList">删除</view>
+  </view> 
+</view>
+

@@ -1,0 +1,17 @@
+<view class="table">
+    <view class="tr bg-w">
+        <view class="th">任务编号</view>
+        <view class="th">商场</view>
+        <view class="th ">状态</view>
+        <view class="th ">操作</view>
+    </view>
+    <block wx:for="{{listData}}" wx:key="index">
+        <view class="tr {{index % 2 == 0?'bg-g':''}}" >
+            <view class="td">{{item.index}}</view>
+             <input value="{{item.store}}" class="td" type="text" disabled="{{item.fal}}">{{item.store}}</input>
+            <view class="td">{{item.status}}</view>
+             <view class="td"><text  bindtap="onclick" data-index="{{index}}" wx:if="{{item.fal}}">编辑</text>
+            <text  bindtap="addinfo" data-index="{{index}}" data-code="{{item.store}}" wx:if="{{!item.fal}}" style="color:red;">确认</text> </view>
+        </view>
+    </block>
+</view>
